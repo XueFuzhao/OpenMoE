@@ -9,13 +9,13 @@ We release three models in total.
 
 | Model Name     | Description                                     | #Param   | Gin File   |
 |----------------|-------------------------------------------------|----------|----------  |
-| openmoe-base   | A Small Debug MoE Model                         |310M      |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
-| openllama-base | Dense counterpart of openmoe-base               |637M      |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA     |8B        |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| openmoe-base   | A Small Debug MoE Model                         |310M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+| openllama-base | Dense counterpart of openmoe-base               |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
+| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA     |8B        |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
 We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
-gsutil cp -r gs://openmoe/openmoe-10b/checkpoint_100000 $YOUR_DIR
+gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 ```
 
 The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
