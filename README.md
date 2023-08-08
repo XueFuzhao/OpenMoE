@@ -20,7 +20,7 @@ gsutil cp -r gs://openmoe/openmoe-10b/checkpoint_100000 $YOUR_DIR
 
 The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens and we are going to train it on around 2T tokens. 
 
-Note: downloading data from Google Cloud Storage would is not free, but you can sign in to Google Cloud and get some free credits.
+Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
 
 ## Data
 50% The RedPajama + 50% The Stack Dedup.
