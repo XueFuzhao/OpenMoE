@@ -23,7 +23,7 @@ The base models are trained with 128B tokens. The openmoe-10B checkpoint has bee
 Note: downloading data from Google Cloud Storage would is not free, but you can sign in to Google Cloud and get some free credits.
 
 ## Data
-50% The RedPajama + 50% The Stack Dedup
+50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
 ## Tokenizer
 [umt5 Tokenizer](https://arxiv.org/abs/2304.09151), which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints)
