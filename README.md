@@ -54,7 +54,7 @@ Please cite the repo if you use the model and code in this repo.
 ```bibtex
 @misc{openmoe2023,
   author = {Fuzhao Xue, Zian Zheng, Yao Fu, Zangwei Zheng, Wangchunshu Zhou and Yang You},
-  title = {Instruction in the Wild: A User-based Instruction Dataset},
+  title = {OpenMoE: Open Mixture-of-Experts Models},
   year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
