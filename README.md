@@ -7,18 +7,18 @@ MoE is Cool and Important! This project is targeting igniting the open-source Mo
 ## Release
 We release three models in total.
 
-| Model Name     | Description                                     | #Param   |
-|----------------|-------------------------------------------------|----------|
-| openmoe-base   | A Small Debug MoE Model                         |310M      |
-| openllama-base | Dense counterpart of openmoe-base               |637M      |
-| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA      |8B        |
+| Model Name     | Description                                     | #Param   | Gin File   |
+|----------------|-------------------------------------------------|----------|----------  |
+| openmoe-base   | A Small Debug MoE Model                         |310M      |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+| openllama-base | Dense counterpart of openmoe-base               |637M      |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
+| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA     |8B        |[line](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
 We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
 gsutil cp -r gs://openmoe/openmoe-10b/checkpoint_100000 $YOUR_DIR
 ```
 
-The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens and we are going to train it on around 2T tokens. 
+The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
 
 Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
 
@@ -43,8 +43,27 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 - 10% span len=64 mask ratio=0.5
 
 
-## Others
+## Other Designs
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
+
+## Challenges and Opportunities
+
+### MoE Infrastructure
+
+While we have open-sourced expert parallelism implementations (e.g., deepspeed MoE), these implementations cannot easily adapt to state-of-the-art (SoTA) MoE designs and widely used infrastructures like Huggingface. To attract more researchers to MoE research, the development and release of a MoE repository that facilitates MoE execution as seamlessly as LLaMA would have a significant impact.
+
+### Instruction Tuning of MoE
+
+Recent FLAN-MoE reveals that although transferring MoE's performance to downstream tasks through task-specific fine-tuning is challenging, instruction tuning aligns well with MoE models.
+
+### MoE Evaluation
+
+As a small team with limited resources, managing both pre-training and evaluation concurrently proves to be a challenge. Evaluating LLM is currently difficult. Our focus is on creating a collection of open-sourced checkpoints, leaving the demanding yet valuable research question to be tackled by the community.
+
+### Hardware
+
+Our model was trained using Google Cloud TPUs with T5x for cost efficiency. However, numerous researchers in the open-source community work with Torch and GPUs. It's worth noting that GPUs are suboptimal for cross-node communication, with each node often housing only a few GPUs. This makes expert parallelism relatively communication-expensive. Encouragingly, NVIDIA recently introduced DGX GH200, a solution that connects 256 NVIDIA Grace Hopper Superchips into a singular GPU. This advancement presents an excellent opportunity to enhance the training and deployment of MoE models for the open-source community.
+
 
 ## Authors
 
