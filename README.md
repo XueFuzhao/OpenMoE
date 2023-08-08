@@ -9,11 +9,11 @@ We release three models in total.
 
 | Model Name     | Description                                     | #Param   |
 |----------------|-------------------------------------------------|----------|
-| openmoe-base   | A Small Debug MoE Model                         |----------|
-| openllama-base | Dense counterpart of openmoe-base               |----------|
-| openmoe-10B    | 10B MoE  with comparable FLOPs of a 2B LLaMA    |----------|
+| openmoe-base   | A Small Debug MoE Model                         |310M      |
+| openllama-base | Dense counterpart of openmoe-base               |637M      |
+| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA      |8B        |
 
-We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-10B with 
+We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
 gsutil cp -r gs://openmoe/openmoe-10b/checkpoint_100000 $YOUR_DIR
 ```
@@ -25,13 +25,24 @@ Note: downloading data from Google Cloud Storage is not free, but you can sign i
 ## Data
 50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
+
 ## Tokenizer
 [umt5 Tokenizer](https://arxiv.org/abs/2304.09151), which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints)
 We use the umT5 tokenizer to support multi-lingual continue learning in the future.
+
 ## Model Architecture
 OpenMoE is based on [ST-MoE](https://arxiv.org/abs/2202.08906). The detailed implementation can be found in Fuzhao's [T5x](https://github.com/XueFuzhao/t5x) and [Flaxformer](https://github.com/XueFuzhao/flaxformer) repo.
+
 ## Training Objective
-We use a modified UL2 training objective. 
+We use a modified UL2 training objective but Casual Attention Mask (We use more prefix LM and high mask ratio because it saves computation.):
+- 50% prefix LM
+- 10% span len=3 mask ratio=0.15
+- 10% span len=8 mask ratio=0.15
+- 10% span len=3 mask ratio=0.5
+- 10% span len=8 mask ratio=0.5
+- 10% span len=64 mask ratio=0.5
+
+
 ## Others
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
 
