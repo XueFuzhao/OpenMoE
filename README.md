@@ -50,7 +50,7 @@ RoPE, SwiGLU activation, 2K context length. We will release a more detailed repo
 We evaluate our model on 0-shot TrivalQA as our first step. We plot the cost-effectiveness curve in the figure below.
 
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token.
-![Plot](fig/triqa.png)
+![Plot](figure/triqa.png)
 
 
 The detailed results can be found in the following table.
