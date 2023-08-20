@@ -89,14 +89,16 @@ _models_ours = [
 # each cell of the retrived results will be "score_0 score_3", which denotes the concatenated scores for 0-shot and 3-shot results
 _number_of_shots = [0,1,2,3,4,5]
 
-# The path to the retrieved results
-_file_to_save = 'results/BIG-bench Lite/retrieved_results.csv'
+
 
 # The path to the results directory
-_results_dir = 'results/BIG-bench Lite'
+_results_dir = '/data/personal/nus-njj/OpenMoE1/results/BIG-bench-Lite-013'
 
 # The path to the BIG-bench tasks directory
 _repo_dir = './BIG-bench/bigbench/benchmark_tasks'
+
+# The path to the retrieved results
+_file_to_save = f"{_results_dir}/retrieved_results.csv"
 
 
 
@@ -167,15 +169,24 @@ def compute_scores_repo(models: list, model_jsons: list, number_of_shots: list):
                     if score_meta['number_of_shots'] == shot_num:
                         raw_score = score_meta['score_dict'][score_meta['preferred_score']]
                         if len(subtask.split(':')) == 2:
-                            # high_score = score_meta['high_score']
-                            # low_score = score_meta['low_score']
-                            # normalized_scores[si][subtask] = min_max_normalize(raw_score, low_score, high_score)
+                            high_score = score_meta['high_score']
+                            low_score = score_meta['low_score']
                             normalized_scores[si][subtask] = raw_score
+                            # normalized_scores[si][subtask] = raw_score
                         else:
-                            normalized_scores_existing[si] += raw_score
-            normalized_scores = [f"{sum(list(subtask_normscores_shot.values()))/len(list(subtask_normscores_shot.values())):.{4}f}" 
-                                 if len(list(subtask_normscores_shot.values()))>0 else 0.0 for subtask_normscores_shot in normalized_scores]
-            normalized_scores_allmodel[model] = ' '.join([str(f"{num:.{4}f}") for num in normalized_scores_existing])
+                            high_score = score_meta['high_score']
+                            low_score = score_meta['low_score']
+                            normalized_scores_existing[si] += min_max_normalize(raw_score, low_score, high_score)
+                            normalized_scores[si]['high_score'] = score_meta['high_score']
+                            normalized_scores[si]['low_score'] = score_meta['low_score']
+                            if len({k:v for k, v in normalized_scores[si].items() if k!='high_score' and k!='low_score'}.keys()) == 0:
+                                normalized_scores[si][subtask] = raw_score
+                                
+            
+            normalized_scores = [min_max_normalize(float(f"{sum(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values()))/len(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values())):.{4}f}"), subtask_normscores_shot['low_score'], subtask_normscores_shot['high_score']) 
+                                 if len(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values()))>0 else 0.0 
+                                 for subtask_normscores_shot in normalized_scores]
+            normalized_scores_allmodel[model] = ' '.join([str(f"{100 * float(num):.{2}f}") for num in normalized_scores_existing])
         else:
             normalized_scores_allmodel[model] = 'None'
     return normalized_scores_allmodel
@@ -257,9 +268,10 @@ def compute_scores_result(task: str, models: list, model_jsons: list, number_of_
                         key_name = f"{task.replace('.mul', '').replace('.gen', '')}:{subtask_name}---{number_of_shot}_shot".replace('atikamp__', 'atikamp?_')
                     else:
                         key_name = f"{task.replace('.mul', '').replace('.gen', '')}---{number_of_shot}_shot".replace('atikamp__', 'atikamp?_')
+                    key_name_task = f"{task.replace('.mul', '').replace('.gen', '')}---{number_of_shot}_shot".replace('atikamp__', 'atikamp?_')
                     preferred_score = task_metric_metainfos[task.replace('.mul', '').replace('.gen', '')][key_name]['preferred_score']
-                    # high_score = task_metric_metainfos[task.replace('.mul', '').replace('.gen', '')][key_name]['high_score']
-                    # low_score = task_metric_metainfos[task.replace('.mul', '').replace('.gen', '')][key_name]['low_score']
+                    high_score = task_metric_metainfos[task.replace('.mul', '').replace('.gen', '')][key_name_task]['high_score']
+                    low_score = task_metric_metainfos[task.replace('.mul', '').replace('.gen', '')][key_name_task]['low_score']
                     with open(subtask_file, 'r') as json_file:
                         results_dict = json.load(json_file)
                     if preferred_score in results_dict.keys():
@@ -267,17 +279,21 @@ def compute_scores_result(task: str, models: list, model_jsons: list, number_of_
                     else:
                         warnings.warn(f"Task '{task}' do not have the {preferred_score} metric.")
                         return None
-                    # score_normed = min_max_normalize(score, low_score, high_score)
-                    score_normed = score
-                    normalized_scores[i][f"{task}:{subtask_name}---{number_of_shot}_shot"] = score_normed
+                    normalized_scores[i][key_name] = score
+                    normalized_scores[i]['low_score'] = low_score
+                    normalized_scores[i]['high_score'] = high_score
+                    # if 'logical_deduction' in subtask_file:
+                    #     print(key_name, score, low_score, high_score)
         for shot_dir in normalized_scores:
-            for subtask in shot_dir.keys():
+            for subtask in {k:v for k, v in shot_dir.items() if k!='high_score' and k!='low_score'}.keys():
                 if ':' not in subtask:
-                    assert len(shot_dir.keys()) == 1, f"For task {task} that doesn't has subtask, there shouldn't be any other subtask result files."
-        normalized_scores = [f"{sum(list(subtask_normscores_shot.values()))/len(list(subtask_normscores_shot.values())):.{4}f}" 
-                             if len(list(subtask_normscores_shot.values()))>0 else 0.0 for subtask_normscores_shot in normalized_scores]
+                    assert len({k:v for k, v in shot_dir.items() if k!='high_score' and k!='low_score'}.keys()) == 1, f"For task {task} that doesn't has subtask, there shouldn't be any other subtask result files."
+        #  for the existing shots, average the scores corresponding to that shot and normalize. If a shot does not exist, set the corresponding score as 0.
+        normalized_scores = [min_max_normalize(float(f"{sum(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values()))/len(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values())):.{4}f}"), subtask_normscores_shot['low_score'], subtask_normscores_shot['high_score']) 
+                                 if len(list({k:v for k, v in subtask_normscores_shot.items() if k!='high_score' and k!='low_score'}.values()))>0 else 0.0 
+                                 for subtask_normscores_shot in normalized_scores]
         if model_found:
-            normalized_scores_allmodel[model] = ' '.join([str(f"{float(num):.{4}f}") for num in normalized_scores])
+            normalized_scores_allmodel[model] = ' '.join([str(f"{100 * float(num):.{2}f}") for num in normalized_scores])
         else:
             normalized_scores_allmodel[model] = 'None'
     return normalized_scores_allmodel
