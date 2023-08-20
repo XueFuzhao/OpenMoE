@@ -93,7 +93,7 @@ _number_of_shots = [0,1,2,3,4,5]
 _file_to_save = '../../final_results/BIG-bench-Lite/retrieved_results.csv'
 
 # The path to the results directory
-_results_dir = '../../inference_results/BIG-bench-Lite'
+_results_dir = '../../inference_results/BIG-bench-Lite-T0'
 
 # The path to the BIG-bench tasks directory
 _repo_dir = '../../BIG-bench/bigbench/benchmark_tasks'

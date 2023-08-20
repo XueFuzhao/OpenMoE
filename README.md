@@ -45,11 +45,11 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 ## Other Designs
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
 
-## Evaluation
+## Evaluation - QA
 
-We evaluate our model on 0-shot TrivalQA as our first step. We plot the cost-effectiveness curve in the figure below.
+We evaluate our model on 0-shot TrivalQA as our first step. We plot the cost-effectiveness curve in the figure below. 
 
-Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token.
+Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
 ![Plot](figure/triqa.png)
 
 
@@ -82,7 +82,16 @@ The detailed results can be found in the following table.
 | OpenMoE     | 0.2B      | 0.5B        | 200B            | 0.04          | 12.8                 |
 | OpenMoE     | 2B        | 8B          | 200B            | 0.4           | 29.2                 |
 
+## Evaluation - BigBench
 
+We conduct few-shot evaluation on BigBench-Lite, an official subset of bigbench dataset. 
+
+In this dataset, we compare with BIG-G, BIG-G-Sparse(a family of closed MoE models from Google) and GPT-3.
+
+The results can be found in the following figure:
+![Plot](figure/bblite-3-shot.png)
+
+We can observe OpenMoE achieved better results in terms of cost-effectiveness trade-off. In addition, we can observe OpenMoE can even outperform closed MoE models with fewer parameters.
 
 ## Challenges and Opportunities
 
@@ -110,6 +119,7 @@ This project is currently contributed by the following authors:
 - [Fuzhao Xue](https://xuefuzhao.github.io/)
 - [Zian(Andy) Zheng](https://www.linkedin.com/in/zian-zheng-21a715239)
 - [Yao Fu](https://franxyao.github.io/)
+- [Jinjie Ni](http://jinjie.one/)
 - [Zangwei Zheng](https://zhengzangw.github.io/)
 - [Wangchunshu Zhou](https://michaelzhouwang.github.io/)
 - [Yang You](https://www.comp.nus.edu.sg/~youy/)
@@ -121,7 +131,7 @@ Please cite the repo if you use the model and code in this repo.
 
 ```bibtex
 @misc{openmoe2023,
-  author = {Fuzhao Xue, Zian(Andy) Zheng, Yao Fu, Zangwei Zheng, Wangchunshu Zhou and Yang You},
+  author = {Fuzhao Xue, Zian(Andy) Zheng, Yao Fu, Jinjie Ni, Zangwei Zheng, Wangchunshu Zhou and Yang You},
   title = {OpenMoE: Open Mixture-of-Experts Foundation Language Models},
   year = {2023},
   publisher = {GitHub},

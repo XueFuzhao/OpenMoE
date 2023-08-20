@@ -2,16 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ed9f50-f51b-4d1b-b819-18e056550c59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eval/plot_bigbench.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eval/result_retrieval_bigbenchlite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eval/triqa_plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figure/bblite-3-shot.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figure/bblite-3-shot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eval/plot_bigbench.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval/plot_bigbench.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eval/result_retrieval_bigbenchlite.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval/result_retrieval_bigbenchlite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figure/triqa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figure/triqa.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figure/triqa.png" beforeDir="false" afterPath="$PROJECT_DIR$/figure/triqa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_retrieval_bigbenchlite.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2UD9SHgJbSgwtdW5DxdA16tyftQ" />
   <component name="ProjectViewState">
@@ -74,9 +97,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="triqa_plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OpenMoE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/eval" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval/triqa_plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.plot_bigbench" />
+        <item itemvalue="Python.triqa_plot" />
         <item itemvalue="Python.result_retrieval_bigbenchlite" />
       </list>
     </recent_temporary>
