@@ -117,7 +117,7 @@ Our model was trained using Google Cloud TPUs with T5x for cost efficiency. Howe
 This project is currently contributed by the following authors:
 
 - [Fuzhao Xue](https://xuefuzhao.github.io/)
-- [Zian(Andy) Zheng](https://www.linkedin.com/in/zian-zheng-21a715239)
+- [Zian Zheng](https://www.linkedin.com/in/zian-zheng-21a715239)
 - [Yao Fu](https://franxyao.github.io/)
 - [Jinjie Ni](http://jinjie.one/)
 - [Zangwei Zheng](https://zhengzangw.github.io/)
@@ -131,7 +131,7 @@ Please cite the repo if you use the model and code in this repo.
 
 ```bibtex
 @misc{openmoe2023,
-  author = {Fuzhao Xue, Zian(Andy) Zheng, Yao Fu, Jinjie Ni, Zangwei Zheng, Wangchunshu Zhou and Yang You},
+  author = {Fuzhao Xue, Zian Zheng, Yao Fu, Jinjie Ni, Zangwei Zheng, Wangchunshu Zhou and Yang You},
   title = {OpenMoE: Open Mixture-of-Experts Foundation Language Models},
   year = {2023},
   publisher = {GitHub},
