@@ -1,17 +1,20 @@
 # OpenMoE
-A family of open-sourced Mixture-of-Experts (MoE) Large Language Models
+OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
-## Introduction
-MoE is Cool and Important! This project is targeting igniting the open-source MoE community! Since we are a small team working on a huge project, we cannot handle everything. Instead, we release some intermedia checkpoints in this repo to invite more contributors to work on open-sourced MoE project together!
+Since we are a small team working on a huge project, we cannot handle everything. Instead, we release some intermedia checkpoints in this repo to invite more contributors to work on open-sourced MoE project together!
 
-## Release
-We release three models in total.
+## News
+
+[2023/08] 🔥 We released OpenMoE-8B along with two other models. Check out the blog [post]().
+
+## Model Weights
+Currently, three models are released in total.
 
 | Model Name     | Description                                     | #Param   | Gin File   |
 |----------------|-------------------------------------------------|----------|----------  |
-| openmoe-base   | A Small Debug MoE Model                         |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
-| openllama-base | Dense counterpart of openmoe-base               |310M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| openmoe-8B     | 8B MoE  with comparable FLOPs of a 2B LLaMA     |8B        |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| OpenMoe-base   | A small MoE model for debugging                 |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+| OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
+| OpenMoE-8B     | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
 We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
