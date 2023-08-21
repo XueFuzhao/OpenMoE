@@ -17,6 +17,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## Contents
 - [Model Weights](#model-weights)
+- [Get Started](#get-started)
 - [Approach](#approach)
 - [License](#license)
 - [Authors](#authors)
@@ -41,6 +42,28 @@ gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
 
 Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
+
+
+## Get Started
+
+### Training
+
+Get a TPU-vm and run the following code on all TPUs. Researcher can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
+
+We are working on the PyTorch + GPU implementation with [Colossal AI](https://github.com/hpcaitech/ColossalAI).
+```
+git clone https://github.com/XueFuzhao/OpenMoE.git
+bash OpenMoE/script/run_pretrain.sh
+```
+
+
+### Eval
+
+Get a TPU-vm and run the following code on all TPUs.
+```
+git clone https://github.com/XueFuzhao/OpenMoE.git
+bash OpenMoE/script/run_eval.sh
+```
 
 
 ## Approach
@@ -76,25 +99,6 @@ Relative Cost is approximated by multiplying activated parameters and training t
 
 For more detailed results, please see our [Blog]()
 
-## How to Use
-
-### Training
-
-Get a TPU-vm and run the following code on all TPUs. Researcher can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
-
-We are working on the PyTorch + GPU implementation with [Colossal AI](https://github.com/hpcaitech/ColossalAI).
-```
-git clone https://github.com/XueFuzhao/OpenMoE.git
-bash OpenMoE/script/run_pretrain.sh
-```
-
-### Eval
-
-Get a TPU-vm and run the following code on all TPUs.
-```
-git clone https://github.com/XueFuzhao/OpenMoE.git
-bash OpenMoE/script/run_eval.sh
-```
 
 
 ## License
