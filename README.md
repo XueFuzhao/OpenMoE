@@ -115,6 +115,11 @@ As a small team with limited resources, managing both pre-training and evaluatio
 
 Our model was trained using Google Cloud TPUs with T5x for cost efficiency. However, numerous researchers in the open-source community work with Torch and GPUs. It's worth noting that GPUs are suboptimal for cross-node communication, with each node often housing only a few GPUs. This makes expert parallelism relatively communication-expensive. Encouragingly, NVIDIA recently introduced DGX GH200, a solution that connects 256 NVIDIA Grace Hopper Superchips into a singular GPU. This advancement presents an excellent opportunity to enhance the training and deployment of MoE models for the open-source community.
 
+## License
+
+Our code is under Apache 2.0 License.
+Since the model is trained by The Redpajama and The Stack dataset, please check the license of these two datasets for your model usage.
+
 
 ## Authors
 
