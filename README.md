@@ -26,9 +26,15 @@ Since we are a small team working on a huge project, we cannot handle everything
 ## Model Weights
 Currently, three models are released in total.
 
+<<<<<<< HEAD
 | Model Name     | Description                      | #Param   | GCS | Huggingface | Gin File   |
 |----------------|----------------------------------|----------|-------------|-------------|----------  |
 | OpenMoE-base   | A small MoE model for debugging                 |637M      |gs://openmoe/openmoe-base/checkpoint_100000 |[Link](https://huggingface.co/fuzhao/OpenMoE_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+=======
+| Model Name     | Description                                     | #Param   | GCS | Huggingface | Gin File   |
+|----------------|-------------------------------------------------|----------|-------------|-------------|----------  |
+| OpenMoE-base   | A small MoE model for debugging                 |637M      |gs://openmoe/openmoe-base/checkpoint_500000 |[Link](https://huggingface.co/fuzhao/OpenMoE_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+>>>>>>> 2d2cdbe9a28d2ebe9699528b555b653d8955bced
 | OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |gs://openmoe/openllama-base/checkpoint_500000|[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
 | OpenMoE-8B     | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |gs://openmoe/openmoe-8b/checkpoint_100000|[Link](https://huggingface.co/fuzhao/OpenMoE_8B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
