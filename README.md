@@ -1,4 +1,6 @@
 # OpenMoE
+| [**Blog**](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) | [**Twitter**](https://twitter.com/XueFz) |
+
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
 Since we are a small team working on a huge project, we cannot handle everything. Instead, we release some intermedia checkpoints in this repo to invite more contributors to work on open-sourced MoE project together!
@@ -13,16 +15,24 @@ Since we are a small team working on a huge project, we cannot handle everything
 - [ ] More Evaluation
 - [ ] Continue Training to 1T tokens
 
+## Contents
+- [Model Weights](#model-weights)
+- [Approach](#approach)
+- [License](#license)
+- [Authors](#authors)
+- [Citation](#citation)
+
+
 ## Model Weights
 Currently, three models are released in total.
 
-| Model Name     | Description                                     | #Param   | Gin File   |
-|----------------|-------------------------------------------------|----------|----------  |
-| OpenMoE-base   | A small MoE model for debugging                 |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
-| OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| OpenMoE-8B     | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| Model Name     | Description                                     | #Param   | GCS | Huggingface | Gin File   |
+|----------------|-------------------------------------------------|----------|-------------|-------------|----------  |
+| OpenMoE-base   | A small MoE model for debugging                 |637M      |gs://openmoe/openmoe-base/checkpoint_100000 |[Link](https://huggingface.co/fuzhao/OpenMoE_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+| OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |gs://openmoe/openllama-base/checkpoint_500000|[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
+| OpenMoE-8B     | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |gs://openmoe/openmoe-8b/checkpoint_100000|[Link](https://huggingface.co/fuzhao/OpenMoE_8B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
-We release all these checkpoints on Google Cloud Storage. For instance, you can download openmoe-8B with 
+We release all these checkpoints on Huggingface and Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
 gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 ```
@@ -89,7 +99,8 @@ bash OpenMoE/script/run_eval.sh
 ## License
 
 Our code is under Apache 2.0 License.
-Since the model is trained by The Redpajama and The Stack dataset, please check the license of these two datasets for your model usage.
+
+Since the models are trained on The Redpajama and The Stack dataset, please check the license of these two datasets for your model usage.
 
 
 ## Authors
