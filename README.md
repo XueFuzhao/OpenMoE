@@ -25,18 +25,20 @@ The base models are trained with 128B tokens. The openmoe-10B checkpoint has bee
 
 Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
 
-## Data
+
+## Approach
+### Data
 50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
 
-## Tokenizer
+### Tokenizer
 [umt5 Tokenizer](https://arxiv.org/abs/2304.09151), which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints)
 We use the umT5 tokenizer to support multi-lingual continue learning in the future.
 
-## Model Architecture
+### Model Architecture
 OpenMoE is based on [ST-MoE](https://arxiv.org/abs/2202.08906). The detailed implementation can be found in Fuzhao's [T5x](https://github.com/XueFuzhao/t5x) and [Flaxformer](https://github.com/XueFuzhao/flaxformer) repo.
 
-## Training Objective
+### Training Objective
 We use a modified UL2 training objective but Casual Attention Mask (We use more prefix LM and high mask ratio because it saves computation.):
 - 50% prefix LM
 - 10% span len=3 mask ratio=0.15
@@ -45,7 +47,7 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 - 10% span len=8 mask ratio=0.5
 - 10% span len=64 mask ratio=0.5
 
-## Other Designs
+### Other Designs
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
 
 ## Evaluation
@@ -97,7 +99,13 @@ The results can be found in the following figure:
 
 We can observe OpenMoE achieved better results in terms of cost-effectiveness trade-off. In addition, we can observe OpenMoE can even outperform closed MoE models with fewer parameters.
 
-### Evaluation - Script
+## How to Use
+
+### Training 
+
+### Eval
+
+
 The example Gin file of evaluating OpenMoE can be found [here](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_eval_bblite.gin).
 
 ## Challenges and Opportunities
