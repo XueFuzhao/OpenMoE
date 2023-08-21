@@ -5,14 +5,20 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
-[2023/08] 🔥 We released OpenMoE-8B along with two other models. Check out the blog [post]().
+[2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint along with two other models. Check out the blog [post]().
+
+## TODO List
+
+- [ ] PyTorch Implementation with Colossal AI
+- [ ] More Evaluation
+- [ ] Continue Training to 1T tokens
 
 ## Model Weights
 Currently, three models are released in total.
 
 | Model Name     | Description                                     | #Param   | Gin File   |
 |----------------|-------------------------------------------------|----------|----------  |
-| OpenMoe-base   | A small MoE model for debugging                 |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
+| OpenMoE-base   | A small MoE model for debugging                 |637M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
 | OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
 | OpenMoE-8B     | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |[link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 
@@ -51,80 +57,34 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
 
 ## Evaluation
-### Evaluation - QA
 
-We evaluate our model on 0-shot TrivalQA as our first step. We plot the cost-effectiveness curve in the figure below. 
+We evaluate our model on TrivalQA and BigBench-Lite as our first step. We plot the cost-effectiveness curve in the figure below. 
 
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
 ![Plot](figure/triqa.png)
 
-
-The detailed results can be found in the following table.
-| Model       | Act Param | Total Param | Training Tokens | Relative Cost | TrivalQA (0-shot EM) |
-|-------------|-----------|-------------|-----------------|---------------|----------------------|
-| OPT         | 7B        | 7B          | 300B            | 2.1           | 22.7                 |
-| OPT         | 13B       | 13B         | 300B            | 3.9           | 28.2                 |
-| Pythia      | 7B        | 7B          | 300B            | 2.1           | 19.8                 |
-| Pythia      | 12B       | 12B         | 300B            | 3.6           | 22.3                 |
-| GPTJ        | 6B        | 6B          | 400B            | 2.4           | 23.4                 |
-| GPT-NeoX    | 20B       | 20B         | 475B            | 9.5           | 34.7                 |
-| MPT         | 7B        | 7B          | 1T              | 7             | 34.3                 |
-| LLaMA       | 7B        | 7B          | 1T              | 7             | 44.3                 |
-| GaLM-Dense  | 0.1B      | 0.1B        | 600B            | 0.6           | 2.3                  |
-| GaLM-Dense  | 2B        | 2B          | 600B            | 1.2           | 27                   |
-| GaLM-Dense  | 8B        | 8B          | 600B            | 4.8           | 55.1                 |
-| GaLM-MoE    | 0.1B      | 2B          | 600B            | 0.6           | 9.4                  |
-| GaLM-MoE    | 2B        | 27B         | 600B            | 1.2           | 44                   |
-| GaLM-MoE    | 8B        | 143B        | 600B            | 4.8           | 48.1                 |
-| Gopher      | 1B        | 1B          | 300B            | 0.3           | 6.5                  |
-| Gopher      | 7B        | 7B          | 300B            | 2.1           | 19.9                 |
-| PaLM        | 8B        | 8B          | 780B            | 6.2           | 39.5                 |
-| PaLM        | 62B       | 62B         | 780B            | 48.3          | 67.3                 |
-| PaLM        | 540B      | 540B        | 780B            | 421.2         | 76.9                 |
-| GPT-3       | 3B        | 3B          | 300B            | 0.9           | 31.3                 |
-| GPT-3       | 7B        | 7B          | 300B            | 2.1           | 38.7                 |
-| GPT-3       | 13B       | 13B         | 300B            | 3.9           | 41.8                 |
-| GPT-3       | 175B      | 175B        | 300B            | 52.5          | 64.3                 |
-| OpenMoE     | 0.2B      | 0.5B        | 200B            | 0.04          | 12.8                 |
-| OpenMoE     | 2B        | 8B          | 200B            | 0.4           | 29.2                 |
-
-### Evaluation - BigBench
-
-We conduct few-shot evaluation on BigBench-Lite, an official subset of bigbench dataset. 
-
-In this dataset, we compare with BIG-G, BIG-G-Sparse(a family of closed MoE models from Google) and GPT-3.
-
-The results can be found in the following figure:
-![Plot](figure/bblite-3-shot.png)
-
-We can observe OpenMoE achieved better results in terms of cost-effectiveness trade-off. In addition, we can observe OpenMoE can even outperform closed MoE models with fewer parameters.
+For more detailed results, please see our [Blog]()
 
 ## How to Use
 
-### Training 
+### Training
+
+Get a TPU-vm and run the following code on all TPUs. Researcher can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
+
+We are working on the PyTorch + GPU implementation with [Colossal AI](https://github.com/hpcaitech/ColossalAI).
+```
+git clone https://github.com/XueFuzhao/OpenMoE.git
+bash OpenMoE/script/run_pretrain.sh
+```
 
 ### Eval
 
+Get a TPU-vm and run the following code on all TPUs.
+```
+git clone https://github.com/XueFuzhao/OpenMoE.git
+bash OpenMoE/script/run_eval.sh
+```
 
-The example Gin file of evaluating OpenMoE can be found [here](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_eval_bblite.gin).
-
-## Challenges and Opportunities
-
-### MoE Infrastructure
-
-While we have open-sourced expert parallelism implementations (e.g., deepspeed MoE), these implementations cannot easily adapt to state-of-the-art (SoTA) MoE designs and widely used infrastructures like Huggingface. To attract more researchers to MoE research, the development and release of a MoE repository that facilitates MoE execution as seamlessly as LLaMA would have a significant impact.
-
-### Instruction Tuning of MoE
-
-Recent FLAN-MoE reveals that although transferring MoE's performance to downstream tasks through task-specific fine-tuning is challenging, instruction tuning aligns well with MoE models.
-
-### MoE Evaluation
-
-As a small team with limited resources, managing both pre-training and evaluation concurrently proves to be a challenge. Evaluating LLM is currently difficult. Our focus is on creating a collection of open-sourced checkpoints, leaving the demanding yet valuable research question to be tackled by the community.
-
-### Hardware
-
-Our model was trained using Google Cloud TPUs with T5x for cost efficiency. However, numerous researchers in the open-source community work with Torch and GPUs. It's worth noting that GPUs are suboptimal for cross-node communication, with each node often housing only a few GPUs. This makes expert parallelism relatively communication-expensive. Encouragingly, NVIDIA recently introduced DGX GH200, a solution that connects 256 NVIDIA Grace Hopper Superchips into a singular GPU. This advancement presents an excellent opportunity to enhance the training and deployment of MoE models for the open-source community.
 
 ## License
 

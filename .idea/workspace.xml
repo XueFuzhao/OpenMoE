@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ed9f50-f51b-4d1b-b819-18e056550c59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eval/triqa_plot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figure/bblite-3-shot.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figure/bblite-3-shot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eval/plot_bigbench.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval/plot_bigbench.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eval/result_retrieval_bigbenchlite.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval/result_retrieval_bigbenchlite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eval/triqa_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval/triqa_plot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figure/triqa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figure/triqa.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figure/triqa.png" beforeDir="false" afterPath="$PROJECT_DIR$/figure/triqa.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result_retrieval_bigbenchlite.py" beforeDir="false" />
@@ -37,11 +36,15 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="2UD9SHgJbSgwtdW5DxdA16tyftQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/eval" />
@@ -54,7 +57,28 @@
       <recent name="C:\Users\Frio\Documents\GitHub\OpenMoE\eval" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.plot_bigbench">
+  <component name="RunManager" selected="Python.triqa_plot">
+    <configuration name="params" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OpenMoE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/OpenMoE/utils" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/OpenMoE/utils/params.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="plot_bigbench" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OpenMoE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,8 +144,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.plot_bigbench" />
         <item itemvalue="Python.triqa_plot" />
+        <item itemvalue="Python.params" />
+        <item itemvalue="Python.plot_bigbench" />
         <item itemvalue="Python.result_retrieval_bigbenchlite" />
       </list>
     </recent_temporary>
@@ -147,5 +172,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
