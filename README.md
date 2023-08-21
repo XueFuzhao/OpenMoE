@@ -3,7 +3,7 @@
 
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
-Since we are a small team working on a huge project, we cannot handle everything. Instead, we release some intermedia checkpoints in this repo to invite more contributors to work on open-sourced MoE project together!
+Since we are a small team working on a huge project, we cannot handle everything. Instead, we release some intermediate checkpoints in this repo to invite more contributors to work on open-sourced MoE project together!
 
 ## News
 
