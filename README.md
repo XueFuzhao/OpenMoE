@@ -45,7 +45,8 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 ## Other Designs
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
 
-## Evaluation - QA
+## Evaluation
+### Evaluation - QA
 
 We evaluate our model on 0-shot TrivalQA as our first step. We plot the cost-effectiveness curve in the figure below. 
 
@@ -82,7 +83,7 @@ The detailed results can be found in the following table.
 | OpenMoE     | 0.2B      | 0.5B        | 200B            | 0.04          | 12.8                 |
 | OpenMoE     | 2B        | 8B          | 200B            | 0.4           | 29.2                 |
 
-## Evaluation - BigBench
+### Evaluation - BigBench
 
 We conduct few-shot evaluation on BigBench-Lite, an official subset of bigbench dataset. 
 
@@ -92,6 +93,9 @@ The results can be found in the following figure:
 ![Plot](figure/bblite-3-shot.png)
 
 We can observe OpenMoE achieved better results in terms of cost-effectiveness trade-off. In addition, we can observe OpenMoE can even outperform closed MoE models with fewer parameters.
+
+### Evaluation - Script
+The example Gin file of evaluating OpenMoE can be found [here](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_eval_bblite.gin).
 
 ## Challenges and Opportunities
 
@@ -132,7 +136,7 @@ Please cite the repo if you use the model and code in this repo.
 ```bibtex
 @misc{openmoe2023,
   author = {Fuzhao Xue, Zian Zheng, Yao Fu, Jinjie Ni, Zangwei Zheng, Wangchunshu Zhou and Yang You},
-  title = {OpenMoE: Open Mixture-of-Experts Foundation Language Models},
+  title = {OpenMoE: Open Mixture-of-Experts Language Models},
   year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
