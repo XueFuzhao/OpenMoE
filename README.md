@@ -14,6 +14,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 - [ ] PyTorch Implementation with Colossal AI
 - [ ] More Evaluation
 - [ ] Continue Training to 1T tokens
+- [ ] Paper
 
 ## Contents
 - [Model Weights](#model-weights)
@@ -75,7 +76,7 @@ We use a high ratio of coding data to improve reasoning ability.
 We use the [umt5 Tokenizer](https://arxiv.org/abs/2304.09151) to support multi-lingual continue learning in the future, which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints).
 
 ### Model Architecture
-OpenMoE is based on [ST-MoE](https://arxiv.org/abs/2202.08906). The detailed implementation can be found in Fuzhao's [T5x](https://github.com/XueFuzhao/t5x) and [Flaxformer](https://github.com/XueFuzhao/flaxformer) repo.
+OpenMoE is based on [ST-MoE](https://arxiv.org/abs/2202.08906) but uses Decoder-only architecture. The detailed implementation can be found in Fuzhao's [T5x](https://github.com/XueFuzhao/t5x) and [Flaxformer](https://github.com/XueFuzhao/flaxformer) repo.
 
 ### Training Objective
 We use a modified UL2 training objective but Casual Attention Mask (We use more prefix LM and high mask ratio because it saves computation.):
