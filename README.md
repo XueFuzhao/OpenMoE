@@ -7,7 +7,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
-[2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint along with two other models. Check out the blog [post]().
+[2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post]().
 
 ## TODO List
 
