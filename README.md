@@ -40,7 +40,7 @@ We release all these checkpoints on Huggingface and Google Cloud Storage. For in
 gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 ```
 
-The base models are trained with 128B tokens. The openmoe-10B checkpoint has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
+The base models are trained with 128B tokens. The openmoe-8B checkpoint with 4 MoE layers and 32 experts has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
 
 Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
 
