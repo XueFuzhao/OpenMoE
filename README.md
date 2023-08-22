@@ -7,7 +7,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
-[2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post]().
+[2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879).
 
 ## TODO List
 
@@ -97,7 +97,7 @@ We evaluate our model on TrivalQA and BigBench-Lite as our first step. We plot t
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
 ![Plot](figure/triqa.png)
 
-For more detailed results, please see our [Blog]()
+For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879)
 
 
 
