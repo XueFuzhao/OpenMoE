@@ -1,5 +1,5 @@
 # OpenMoE
-| [**Blog**](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) | [**Twitter**](https://twitter.com/XueFz) | [**Discord**](https://discord.gg/bjGnGfjegU)
+| [**Blog**](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) | [**Twitter**](https://twitter.com/XueFz) | [**Discord**](https://discord.gg/bjGnGfjegU) |
 
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
