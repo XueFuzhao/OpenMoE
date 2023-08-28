@@ -92,10 +92,10 @@ RoPE, SwiGLU activation, 2K context length. We will release a more detailed repo
 
 ## Evaluation
 
-We evaluate our model on TrivalQA and BigBench-Lite as our first step. We plot the cost-effectiveness curve in the figure below. 
+We evaluate our model on BigBench-Lite as our first step. We plot the cost-effectiveness curve in the figure below. 
 
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
-![Plot](figure/triqa.png)
+![Plot](figure/bblite-3-shot.png)
 
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879)
 
