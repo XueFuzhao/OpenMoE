@@ -42,7 +42,7 @@ gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 
 The base models are trained with 128B tokens. The openmoe-8B checkpoint with 4 MoE layers and 32 experts has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
 
-Note: downloading data from Google Cloud Storage is not free, but you can sign in to Google Cloud and get some credits.
+Note: downloading data from Google Cloud Storage is not free, but you can sign up to Google Cloud and get some credits.
 
 
 ## Get Started
@@ -71,6 +71,10 @@ bash OpenMoE/script/run_eval.sh
 ### Data
 50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
+
+Below are scripts to generate TFDS for pre-training datasets: 
+The RedPajama: https://github.com/Orion-Zheng/redpajama_tfds
+The-Stack-Dedup: https://github.com/Orion-Zheng/the_stack_tfds
 
 ### Tokenizer
 We use the [umt5 Tokenizer](https://arxiv.org/abs/2304.09151) to support multi-lingual continue learning in the future, which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints).
