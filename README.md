@@ -72,9 +72,9 @@ bash OpenMoE/script/run_eval.sh
 50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
 
-Below are scripts to generate TFDS for pre-training datasets: 
-The RedPajama: https://github.com/Orion-Zheng/redpajama_tfds
-The-Stack-Dedup: https://github.com/Orion-Zheng/the_stack_tfds
+Below are scripts to generate TFDS for pre-training datasets:   
+The RedPajama: https://github.com/Orion-Zheng/redpajama_tfds  
+The-Stack-Dedup: https://github.com/Orion-Zheng/the_stack_tfds  
 
 ### Tokenizer
 We use the [umt5 Tokenizer](https://arxiv.org/abs/2304.09151) to support multi-lingual continue learning in the future, which can be downloaded on [Huggingface](https://huggingface.co/google/umt5-small/tree/main) or [Google Cloud](https://github.com/google-research/t5x/blob/main/docs/models.md#umt5-checkpoints).
