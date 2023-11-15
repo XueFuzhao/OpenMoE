@@ -7,11 +7,12 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
+[2023/11] 🔥 Thanks to Colossal AI! They released one PyTorch OpenMoE implementation including both training and inference with expert parallelism.
 [2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post](https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879).
 
 ## TODO List
 
-- [ ] PyTorch Implementation with Colossal AI
+- [x] PyTorch Implementation with Colossal AI
 - [ ] More Evaluation
 - [ ] Continue Training to 1T tokens
 - [ ] Paper
@@ -33,16 +34,17 @@ Currently, three models are released in total.
 |----------------|-------------------------------------------------|----------|-------------|-------------|----------  |
 | OpenMoE-base/16E   | A small MoE model for debugging                 |637M      |gs://openmoe/openmoe-base/checkpoint_500000 |[Link](https://huggingface.co/fuzhao/OpenMoE_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
 | OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |gs://openmoe/openllama-base/checkpoint_500000|[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| OpenMoE-8B/32E    | 8B MoE with comparable FLOPs of a 2B LLaMA      |8B        |gs://openmoe/openmoe-8b/checkpoint_100000|[Link](https://huggingface.co/fuzhao/OpenMoE_8B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| OpenMoE-8B/32E (200B)    | 8B MoE with comparable FLOPs of a 1.6B LLaMA      |8B        |gs://openmoe/openmoe-8b/checkpoint_100000|[Link](https://huggingface.co/fuzhao/OpenMoE_8B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| OpenMoE-8B/32E (890B)   | 8B MoE with comparable FLOPs of a 1.6B LLaMA      |8B        ||[Link](https://huggingface.co/fuzhao/OpenMoE_8B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
 
 We release all these checkpoints on Huggingface and Google Cloud Storage. For instance, you can download openmoe-8B with 
 ```
 gsutil cp -r gs://openmoe/openmoe-8b/checkpoint_100000 $YOUR_DIR
 ```
 
-The base models are trained with 128B tokens. The openmoe-8B checkpoint with 4 MoE layers and 32 experts has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu). In addition, we are highly interested in training this model until saturate by performing multi-epoch training, which means we may train our model for over 2T and even more tokens (this depends on the resource we can get in the coming months)
+The base models are trained with 128B tokens. The openmoe-8B checkpoint with 4 MoE layers and 32 experts has been trained by 200B tokens. We are still training OpenMoE-8B. So if you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu).
 
-Note: downloading data from Google Cloud Storage is not free, but you can sign up to Google Cloud and get some credits.
+Note: downloading data from Google Cloud Storage is not free, but you can sign up to Google Cloud and get some credits. You can also use Huggingface directly.
 
 
 ## Get Started
@@ -65,7 +67,6 @@ Get a TPU-vm and run the following code on all TPUs.
 git clone https://github.com/XueFuzhao/OpenMoE.git
 bash OpenMoE/script/run_eval.sh
 ```
-
 
 ## Approach
 ### Data
