@@ -71,8 +71,25 @@ bash OpenMoE/script/run_eval.sh
 
 ## Approach
 ### Data
+#### Before 780B tokens:
 50% The RedPajama + 50% The Stack Dedup.
 We use a high ratio of coding data to improve reasoning ability.
+
+#### After 780B tokens:
+
+| dataset                        | Ratio (%) |
+| -------------------------------| ----------- |
+| redpajama_c4                   | 15.0        |
+| redpajama_wikipedia            | 6.5         |
+| wikipedia                      | 6.5         |
+| redpajama_stackexchange        | 2.5         |
+| redpajama_arxiv                | 4.5         |
+| redpajama_book                 | 6.5         |
+| redpajama_github               | 5.0         |
+| redpajama_common_crawl         | 43.5        |
+| the_stack_dedup                | 10.0        |
+
+We found model tends to learn code faster than language. So we decide to reduce the coding data at the later stage of training.
 
 Below are scripts to generate TFDS for pre-training datasets:   
 The RedPajama: https://github.com/Orion-Zheng/redpajama_tfds  
@@ -85,6 +102,8 @@ We use the [umt5 Tokenizer](https://arxiv.org/abs/2304.09151) to support multi-l
 OpenMoE is based on [ST-MoE](https://arxiv.org/abs/2202.08906) but uses Decoder-only architecture. The detailed implementation can be found in Fuzhao's [T5x](https://github.com/XueFuzhao/t5x) and [Flaxformer](https://github.com/XueFuzhao/flaxformer) repo.
 
 ### Training Objective
+
+#### Before 780B tokens:
 We use a modified UL2 training objective but Casual Attention Mask (We use more prefix LM and high mask ratio because it saves computation.):
 - 50% prefix LM
 - 10% span len=3 mask ratio=0.15
@@ -92,6 +111,9 @@ We use a modified UL2 training objective but Casual Attention Mask (We use more 
 - 10% span len=3 mask ratio=0.5
 - 10% span len=8 mask ratio=0.5
 - 10% span len=64 mask ratio=0.5
+
+#### After 780B tokens:
+Vanilla next token prediction, because we observed that UL2 objective tends to saturate at the later stage of training, although it enables model to learn things faster at start.
 
 ### Other Designs
 RoPE, SwiGLU activation, 2K context length. We will release a more detailed report soon.
