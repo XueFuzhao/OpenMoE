@@ -7,7 +7,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
-[2023/11] 🔥 Thanks to Colossal AI! They released one PyTorch OpenMoE implementation including both training and inference with expert parallelism.
+[2023/11] 🔥 Thanks to Colossal AI! They released one [PyTorch OpenMoE implementation](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) including both training and inference with expert parallelism.
 
 [2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post](https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879).
 
