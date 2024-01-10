@@ -7,7 +7,7 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
-[2024/01] 🔥 Exciting news! OpenMoE-8B-Chat is now available. We've provided a Colab inference [demo](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY) for everyone to try, as well as a [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) on converting JAX checkpoints to PyTorch checkpoints(Note: both require Colab Pro).
+[2024/01] 🔥 OpenMoE-8B-Chat is now available. We've provided a Colab inference [demo](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY) for everyone to try, as well as a [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) on converting JAX checkpoints to PyTorch checkpoints(Note: both require Colab Pro).
 
 [2023/11] 🔥 Thanks to Colossal AI! They released one [PyTorch OpenMoE implementation](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) including both training and inference with expert parallelism.
 
@@ -61,8 +61,9 @@ We provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7p
 
 Get a TPU-vm and run the following code on all TPUs. Researcher can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
 
-We are working on the PyTorch + GPU implementation with [Colossal AI](https://github.com/hpcaitech/ColossalAI).
+[Colossal AI](https://github.com/hpcaitech/ColossalAI) has the PyTorch + GPU implementation for OpenMoE.
 ```
+# On TPUs
 git clone https://github.com/XueFuzhao/OpenMoE.git
 bash OpenMoE/script/run_pretrain.sh
 ```
