@@ -7,6 +7,8 @@ Since we are a small team working on a huge project, we cannot handle everything
 
 ## News
 
+[2024/01] 🔥 Exciting news! OpenMoE-8B-Chat is now available. We've provided a Colab inference [demo](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY) for everyone to try, as well as a [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) on converting JAX checkpoints to PyTorch checkpoints(Note: both require Colab Pro).
+
 [2023/11] 🔥 Thanks to Colossal AI! They released one [PyTorch OpenMoE implementation](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) including both training and inference with expert parallelism.
 
 [2023/08] 🔥 We released an intermediate OpenMoE-8B checkpoint (OpenMoE-v0.2) along with two other models. Check out the blog [post](https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879).
@@ -49,6 +51,11 @@ Note: downloading data from Google Cloud Storage is not free, but you can sign u
 
 
 ## Get Started
+
+### Inference
+
+We provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) explaining the setup and execution of PyTorch model inference. You can now experiment with OpenMoE-8B-Chat on Colab. Running OpenMoE-8B requires ~49GB of memory in float32 or ~23GB in bfloat16. It can be executed on a Colab CPU High-RAM runtime or an A100-40GB runtime, both of which require Colab Pro.
+
 
 ### Training
 
@@ -141,7 +148,7 @@ Since the models are trained on The Redpajama and The Stack dataset, please chec
 This project is currently contributed by the following authors:
 
 - [Fuzhao Xue](https://xuefuzhao.github.io/)
-- [Zian Zheng](https://www.linkedin.com/in/zian-zheng-21a715239)
+- [Zian Zheng](https://zheng-zian-andy.com)
 - [Yao Fu](https://franxyao.github.io/)
 - [Jinjie Ni](http://jinjie.one/)
 - [Zangwei Zheng](https://zhengzangw.github.io/)
