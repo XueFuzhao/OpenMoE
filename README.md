@@ -5,11 +5,14 @@
 </p>
 <hr>
 
+# OpenMoE
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
-Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code on [Twitter](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, we faced several months of scarce computing resources. Finally, the OpenMoE-8B training was completed in November, 2023. After that, we embarked on explorations on 34B scale model, which is still ongoing.
+Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code [[Twitter]](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, we faced several months of scarce computing resources. Finally, the OpenMoE-8B training was completed in November, 2023. After that, we embarked on explorations on 34B scale model, which is still ongoing.
 
-As an early effort in developing a decoder-only MoE Language Model, the work of our small student team may not rival some of the later corporate achievements, such as Mixtral MoE, , considering the data and computational power limitations. However, we will continue to maintain our commitment to openness, fully sharing our training data, strategies, model weights, and everything we have with the community. We hope this project will promote research on this promising topic and invite more contributors to work on open-sourced MoE projects together!
+As an early effort in developing a decoder-only MoE Language Model, the work of our small student team may not rival some of the later corporate achievements, such as Mixtral MoE, considering the data and computational power limitations. However, we will continue to maintain our commitment to openness, fully sharing our training data, strategies, model architecture, weights, and everything we have with the community.
+
+We hope this project will promote research on this promising field and invite more contributors to work on open-sourced MoE projects together!
 
 ## News
 
@@ -36,7 +39,7 @@ As an early effort in developing a decoder-only MoE Language Model, the work of 
 
 
 ## Model Weights
-Currently, three models are released in total, OpenMoE-base, OpenMoE-8B(and its chat version), and OpenMoE-34B(intermediate checkpoint at 200B tokens). 
+Currently, three models are released in total: OpenMoE-base, OpenMoE-8B(and its chat version), and OpenMoE-34B(intermediate checkpoint at 200B tokens). 
 
 We provide all these checkpoints on Huggingface(in pytorch) and Google Cloud Storage(in Jax).
 
@@ -45,7 +48,7 @@ We provide all these checkpoints on Huggingface(in pytorch) and Google Cloud Sto
 |----------------|-------------------------------------------------|----------|-------------|----------  |
 | OpenMoE-base   | A small MoE model for debugging(only go through 128B tokens)         |637M      |[Link](https://huggingface.co/OrionZheng/openmoe-base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
 | OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B/tree/main)) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
+| OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B/tree/main) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
 | OpenMoE-8B-890B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-raw) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
 | **OpenMoE-8B-1.1T**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-raw) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
 | **OpenMoE-8B-Chat (1.1T+SFT)**   | OpenMoE-8B-1.1T supervised finetuned on the [WildChat](https://huggingface.co/datasets/allenai/WildChat-nontoxic)   |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-chat) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_wildchat_sft.gin) |
@@ -63,7 +66,7 @@ We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layer and
 
 ### Inference with Pytorch
 
-We provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) explaining the environment setup and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab.
+We provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) demonstrating the jax checkpoint conversion and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab directly by [this](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY)(Note: both require Colab Pro).
 - Running OpenMoE-8B requires ~49GB of memory in float32 or ~23GB in bfloat16(float16 is not recommended because sometimes it will lead to performance degradation). It can be executed on a Colab `CPU High-RAM` runtime or an `A100-40GB` runtime, both of which require Colab Pro.
 - Runing the OpenMoE-34B requries ~89GB of memory in bfloat16 or ~180GB in float32. To perform inference on multiple devices/offloading model weights to RAM, please refer to the script [here](script/inference_on_multi_devices.py).
 
@@ -76,7 +79,7 @@ For the inference environment setup, please refer to the script [here](env/prepa
 git clone https://github.com/XueFuzhao/OpenMoE.git
 bash OpenMoE/script/run_pretrain.sh
 ```
-2. **On GPUs:** [ColossalAI](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) provides a PyTorch + GPU implementation for OpenMoE and has optimized expert parallel strategies. However, we have recently noticed some issues[#5163](https://github.com/hpcaitech/ColossalAI/issues/5163),[#5212](https://github.com/hpcaitech/ColossalAI/issues/5212) raised about convergence problems. We are actively following up on these concerns and will soon update our training tutorials.
+2. **On GPUs:** [ColossalAI](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) provides a PyTorch + GPU implementation for OpenMoE and has optimized expert parallel strategies. However, we have recently noticed some issues[#5163](https://github.com/hpcaitech/ColossalAI/issues/5163),[#5212](https://github.com/hpcaitech/ColossalAI/issues/5212) raised about convergence problems. We are actively following up on these concerns and will soon update our GPU training tutorials.
 
 ### Evaluation with TPU/GPU
 1. **On TPUs:** Get a TPU-vm and run the following code to evaluate model on the BIG-bench-Lite.
@@ -90,8 +93,8 @@ git clone https://github.com/Orion-Zheng/FastChat.git
 cd FastChat && pip install -e ".[model_worker,llm_judge]"
 cd FastChat/fastchat/llm_judge
 python gen_model_answer.py --model-path LOCAL_PATH_TO_MODEL_CKPT/openmoe_8b_chat_ckpt\
- --model-id openmoe-chat\
- --dtype bfloat16
+                           --model-id openmoe-chat\
+                           --dtype bfloat16
 ```
 
 
@@ -149,13 +152,14 @@ RoPE, SwiGLU activation, 2K context length. We will release a more detailed repo
 We evaluate our model on BigBench-Lite as our first step. We plot the cost-effectiveness curve in the figure below. 
 
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
-<img src="figure/bblite-3-shot.png" width="50%" alt="Bigbench-Lite">
+<img src="figure/bblite-3-shot.png" width="80%" alt="Bigbench-Lite">
 
 
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) 
 
 ### [2024.01] MT-Bench
-We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed some dense counterparts with the same FLOPs magnitude.
+We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed some dense counterparts with the same FLOPs magnitude on Turn 1.
+
 ![MT-Bench Result(Turn 1)](figure/mt_bench_turn_1.png)
 
 ## License
