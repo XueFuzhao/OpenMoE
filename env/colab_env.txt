@@ -1,0 +1,22 @@
+absl-py==1.4.0
+clu @ git+https://github.com/google/CommonLoopUtils#egg=clu
+flax @ git+https://github.com/google/flax#egg=flax
+fiddle==0.2.11
+gin-config==0.5.0
+jax==0.4.20
+jaxtyping==0.2.24
+jaxlib @ https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.4.20+cuda11.cudnn86-cp310-cp310-manylinux2014_x86_64.whl#sha256=01be66238133f884bf5adf15cd7eaaf8445f9d4b056c5c64df28a997a6aff2fe
+jestimator @ git+https://github.com/google-research/jestimator#egg=jestimator
+numpy==1.23.5
+optax @ git+https://github.com/deepmind/optax@1a7956d0e6f6f2881fb8f7d4c579a6435c8431eb
+orbax-checkpoint==0.4.4
+seqio @ git+https://github.com/google/seqio#egg=seqio
+tensorflow-cpu==2.15.0.post1
+tensorstore==0.1.45
+protobuf==3.20.3
+colossalai >= 0.3.3
+torch >= 2.1.0
+transformers==4.34.0
+sentencepiece==0.1.99
+datasets==2.14.7
+chex==0.1.7
