@@ -182,7 +182,7 @@ This project is currently contributed by the following authors:
 - [Yang You](https://www.comp.nus.edu.sg/~youy/)
 
 ## Acknowledgement
-The computational resources for this project were generously provided by the [Google TPU Research Cloud(TRC)](https://sites.research.google/trc/about/). We extend our heartfelt thanks to TRC for their invaluable support, which has been fundamental to the success of our work. Besides, we are extremely grateful to the [ColossalAI Team](https://github.com/hpcaitech/ColossalAI) for their valuable support with the PyTorch implementation, especially [Xuanlei Zhao](https://oahzxl.github.io/) and [Wenhao Chen](https://github.com/CWHer), making training and inference of OpenMoE on GPUs a reality.
+The computational resources for this project were generously provided by the [Google TPU Research Cloud(TRC)](https://sites.research.google/trc/about/). We extend our heartfelt thanks to TRC for their invaluable support, which has been fundamental to the success of our work. Besides, we are extremely grateful to the [ColossalAI Team](https://github.com/hpcaitech/ColossalAI) for their tremendous support with the PyTorch implementation, especially [Xuanlei Zhao](https://oahzxl.github.io/) and [Wenhao Chen](https://github.com/CWHer), making training and inference of OpenMoE on GPUs a reality.
 
 ## Citation
 
