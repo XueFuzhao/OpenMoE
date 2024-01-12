@@ -1,0 +1,25 @@
+# Use NVIDIA PyTorch image as the base
+FROM nvcr.io/nvidia/pytorch:23.12-py3
+
+# Set the working directory
+WORKDIR /workspace
+
+# Download the requirements file 
+RUN wget https://github.com/XueFuzhao/OpenMoE/raw/main/env/colab_env.txt -O colab_env.txt
+
+# Install Python packages
+RUN python --version && \
+    python -m pip install --upgrade pip && \
+    pip install -r colab_env.txt
+
+# Clone and install t5x
+RUN git clone --branch=main https://github.com/Orion-Zheng/t5x && \
+    python -m pip install ./t5x
+
+# Clone and install ColossalAI
+RUN git clone --branch my_openmoe https://github.com/Orion-Zheng/ColossalAI.git && \
+    pip install ./ColossalAI && \
+    python -m pip install -r ./ColossalAI/examples/language/openmoe/requirements.txt
+
+# Set command to run on container start
+CMD ["bash"]
