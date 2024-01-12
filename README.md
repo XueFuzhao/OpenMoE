@@ -47,13 +47,13 @@ We provide all these checkpoints on Huggingface(in pytorch) and Google Cloud Sto
 | OpenMoE-base   | A small MoE model for debugging(only go through 128B tokens)         |637M      |[Link](https://huggingface.co/OrionZheng/openmoe-base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
 | OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
 | OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B/tree/main) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
-| OpenMoE-8B-890B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-raw) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
-| **OpenMoE-8B-1.1T**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-raw) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
+| OpenMoE-8B-890B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-890B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
+| **OpenMoE-8B-1.1T**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
 | **OpenMoE-8B-Chat (1.1T+SFT)**   | OpenMoE-8B-1.1T supervised finetuned on the [WildChat GPT-4 Subset](https://huggingface.co/datasets/allenai/WildChat-nontoxic)   |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-chat) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_wildchat_sft.gin) |
 | **OpenMoE-34B/32E (200B)**   |  34B MoE with comparable FLOPs of a 7B LLaMA(No SFT)  |34B        |[Link](https://huggingface.co/OrionZheng/openmoe-34b-200B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_xl.gin) |
  
 
-The base models, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of the model architexture, we did not pursue further training. Consequently, their performance might not be very well, and they are not designed for practical applications.
+The base models, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of the model architexture, we did not pursue further training. Consequently, the base checkpoint are not suitable for practical applications as their performance might not be very well.
 
 The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. Besides, we also provide some intermediate checkpoints at 200B and 890B tokens for research purposes.
 
@@ -97,7 +97,7 @@ print(tokenizer.decode(sample[0]))
 ```
 
 We also provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) demonstrating the jax checkpoint conversion and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab directly by [this](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY)(Note: both require Colab Pro).
-- Running OpenMoE-8B requires ~49GB of memory in float32 or ~23GB in bfloat16(float16 is not recommended because sometimes it will lead to performance degradation). It can be executed on a Colab `CPU High-RAM` runtime or an `A100-40GB` runtime, both of which require Colab Pro.
+- Running OpenMoE-8B requires ~49GB of memory in float32 or ~23GB in bfloat16. It can be executed on a Colab `CPU High-RAM` runtime or an `A100-40GB` runtime, both of which require Colab Pro.The float16 precision is not recommended because sometimes it will lead to performance degradation.
 - Runing the OpenMoE-34B requries ~89GB of memory in bfloat16 or ~180GB in float32. To perform inference on multiple devices/offloading model weights to RAM, please refer to the script [here](script/inference_on_multi_devices.py).
 - A more detailed env setup script can be found [here](env/prepare_env.sh). Note: you don't need t5x and Jax dependency if you are using our [huggingface ckpts](https://huggingface.co/OrionZheng/openmoe-8b-chat)
 
