@@ -63,12 +63,24 @@ We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layer and
 ## Get Started
 
 ### Inference with Pytorch
+Our PyToch implementation is supported by [Colossal AI](https://github.com/hpcaitech/ColossalAI). You can install our forked version directly for easier setup:
+```
+# Install ColossalAI
+git clone --branch my_openmoe https://github.com/Orion-Zheng/ColossalAI.git
+pip install ./ColossalAI
+python -m pip install -r ./ColossalAI/examples/language/openmoe/requirements.txt
+```
 
-We provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) demonstrating the jax checkpoint conversion and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab directly by [this](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY)(Note: both require Colab Pro).
+Then, you can inference by:
+```
+# TODO
+```
+
+We also provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) demonstrating the jax checkpoint conversion and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab directly by [this](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY)(Note: both require Colab Pro).
 - Running OpenMoE-8B requires ~49GB of memory in float32 or ~23GB in bfloat16(float16 is not recommended because sometimes it will lead to performance degradation). It can be executed on a Colab `CPU High-RAM` runtime or an `A100-40GB` runtime, both of which require Colab Pro.
 - Runing the OpenMoE-34B requries ~89GB of memory in bfloat16 or ~180GB in float32. To perform inference on multiple devices/offloading model weights to RAM, please refer to the script [here](script/inference_on_multi_devices.py).
+- A more detailed env setup script can be found [here](env/prepare_env.sh). Note: you don't need t5x and Jax dependency if you are using our [huggingface ckpts](https://huggingface.co/OrionZheng/openmoe-8b-chat)
 
-For the inference environment setup, please refer to the script [here](env/prepare_env.sh)
 
 
 ### Training with TPU/GPU
