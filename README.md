@@ -149,7 +149,7 @@ RoPE, SwiGLU activation, 2K context length. We will release a more detailed repo
 We evaluate our model on BigBench-Lite as our first step. We plot the cost-effectiveness curve in the figure below. 
 
 Relative Cost is approximated by multiplying activated parameters and training tokens. The size of dots denotes the number of activated parameters for each token. The lightgray dot denotes the total parameters of MoE models.
-<img src="figure/bblite-3-shot.png" width="80%" alt="Bigbench-Lite">
+<img src="figure/bblite-3-shot.png" width="60%" alt="Bigbench-Lite">
 
 
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) 
@@ -157,7 +157,7 @@ For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-
 ### MT-Bench
 We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed dense LLMs trained with around two times FLOPs on the first Turn results.
 
-![MT-Bench Result(Turn 1)](figure/mt_bench_turn_1.png)
+<img src="figure/mt_bench_turn_1.png" width="50%" alt="Bigbench-Lite">
 
 ## License
 
