@@ -73,7 +73,27 @@ python -m pip install -r ./ColossalAI/examples/language/openmoe/requirements.txt
 
 Then, you can inference by:
 ```
-# TODO
+from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM
+
+model_path = "ckpts/openmoe-8b-chat"
+config = AutoConfig.from_pretrained(model_path)
+tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(
+    model_path,
+    torch_dtype=torch.bfloat16,
+    trust_remote_code=True, 
+    device_map='auto'
+    )
+query = 'Question: How do I kill a process? Answer:'
+prompt = f'''<<SYS>>
+You are a helpful, respectful and honest assistant.
+<</SYS>>
+
+<s>[INST] {query} [/INST]'''
+
+inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
+sample = model.generate(**inputs, max_new_tokens=32)
+print(tokenizer.decode(sample[0]))
 ```
 
 We also provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) demonstrating the jax checkpoint conversion and execution of PyTorch model inference. You can experiment with OpenMoE-8B-Chat on Colab directly by [this](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY)(Note: both require Colab Pro).
