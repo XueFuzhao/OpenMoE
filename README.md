@@ -55,7 +55,7 @@ We provide all these checkpoints on Huggingface(in pytorch) and Google Cloud Sto
 
 The base models, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of the model architexture, we did not pursue further training. Consequently, their performance might not be very well, and they are not designed for practical applications.
 
-The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset. Besides, we also prodive some intermediate checkpoints at 200B and 890B tokens for research purposes.
+The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. Besides, we also provide some intermediate checkpoints at 200B and 890B tokens for research purposes.
 
 We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layer and 32 experts. We released the intermediate checkpoint trained on 200B tokens on huggingface. If you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu).
 
@@ -80,12 +80,7 @@ bash OpenMoE/script/run_pretrain.sh
 2. **On GPUs:** [ColossalAI](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) provides a PyTorch + GPU implementation for OpenMoE and has optimized expert parallel strategies. However, we have recently noticed some issues[#5163](https://github.com/hpcaitech/ColossalAI/issues/5163),[#5212](https://github.com/hpcaitech/ColossalAI/issues/5212) raised about convergence problems. We are actively following up on these concerns and will soon update our GPU training tutorials.
 
 ### Evaluation with TPU/GPU
-1. **On TPUs:** Get a TPU-vm and run the following code to evaluate model on the BIG-bench-Lite.
-```
-git clone https://github.com/XueFuzhao/OpenMoE.git
-bash OpenMoE/script/run_eval.sh
-```
-2. **On GPUs:** You can evaluate our model on MT-Bench by runing code below.
+1. **On GPUs:** You can evaluate our model on MT-Bench by runing code below.
 ```
 git clone https://github.com/Orion-Zheng/FastChat.git
 cd FastChat && pip install -e ".[model_worker,llm_judge]"
@@ -94,7 +89,11 @@ python gen_model_answer.py --model-path LOCAL_PATH_TO_MODEL_CKPT/openmoe_8b_chat
                            --model-id openmoe-chat\
                            --dtype bfloat16
 ```
-
+2. **On TPUs:** Get a TPU-vm and run the following code to evaluate model on the BIG-bench-Lite.
+```
+git clone https://github.com/XueFuzhao/OpenMoE.git
+bash OpenMoE/script/run_eval.sh
+```
 
 ## Approach
 ### Data
@@ -155,8 +154,8 @@ Relative Cost is approximated by multiplying activated parameters and training t
 
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) 
 
-### [2024.01] MT-Bench
-We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed some dense counterparts with two times training FLOPs on the first Turn results.
+### MT-Bench
+We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed dense LLMs trained with around two times FLOPs on the first Turn results.
 
 ![MT-Bench Result(Turn 1)](figure/mt_bench_turn_1.png)
 
