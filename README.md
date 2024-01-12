@@ -8,11 +8,9 @@
 # OpenMoE
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
-Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code [[Twitter]](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, we faced several months of scarce computing resources. Finally, the OpenMoE-8B training was completed in November, 2023. After that, we embarked on explorations on 34B scale model, which is still ongoing.
+Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code [[Twitter]](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, the OpenMoE-8B training was completed in November, 2023. After that, we embarked on explorations on 34B scale model, which is still ongoing.
 
-As an early effort in developing a decoder-only MoE Language Model, the work of our small student team may not rival some of the later corporate achievements, such as Mixtral MoE, considering the data and computational power limitations. However, we will continue to maintain our commitment to openness, fully sharing our training data, strategies, model architecture, weights, and everything we have with the community.
-
-We hope this project will promote research on this promising field and invite more contributors to work on open-sourced MoE projects together!
+As a small student team, instead of pursuing the best model with better data, computation, and human power, we devote to fully sharing our training data, strategies, model architecture, weights, and everything we have with the community. We hope this project will promote research on this promising field and invite more contributors to work on open-sourced MoE projects together!
 
 ## News
 
@@ -158,7 +156,7 @@ Relative Cost is approximated by multiplying activated parameters and training t
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) 
 
 ### [2024.01] MT-Bench
-We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed some dense counterparts with the same FLOPs magnitude on Turn 1.
+We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed some dense counterparts with two times training FLOPs on the first Turn results.
 
 ![MT-Bench Result(Turn 1)](figure/mt_bench_turn_1.png)
 
