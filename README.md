@@ -37,28 +37,35 @@ As a small student team, instead of pursuing the best model with better data, co
 
 
 ## Model Weights
-Currently, three models are released in total: OpenMoE-base, OpenMoE-8B(and its chat version), and OpenMoE-34B(intermediate checkpoint at 200B tokens). 
+Currently, three models are released in total: OpenMoE-base, OpenMoE-8B/8B-Chat, and OpenMoE-34B(at 200B tokens). 
 
-We provide all these checkpoints on Huggingface(in pytorch) and Google Cloud Storage(in Jax).
+The table below lists the 8B/8B-Chat model that has completed training on 1.1T tokens.
+
+| Model Name     | Description                      | #Param   |Huggingface |
+|----------------|-------------------------------------------------|----------|-------------|
+| **OpenMoE-8B(1.1T)**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b) |
+| **OpenMoE-8B-Chat (1.1T+SFT)**   | OpenMoE-8B-1.1T supervised finetuned on the [WildChat GPT-4 Subset](https://huggingface.co/datasets/allenai/WildChat-nontoxic)   |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-chat) |
 
 
-| Model Name     | Description                      | #Param   |Huggingface | Gin File   |
-|----------------|-------------------------------------------------|----------|-------------|----------  |
-| OpenMoE/16E-base   | A small MoE model for debugging(only go through 128B tokens)         |637M      |[Link](https://huggingface.co/OrionZheng/openmoe-base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_base.gin)  |   
-| OpenLLaMA-base | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openllama_base.gin)  |     
-| OpenMoE-8B/32E-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B/tree/main) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large.gin) |
-| OpenMoE-8B/32E-890B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-890B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
-| **OpenMoE-8B/32E (1.1T)**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_full_lm_stage2.gin) |
-| **OpenMoE-8B/32E-Chat (1.1T+SFT)**   | OpenMoE-8B-1.1T supervised finetuned on the [WildChat GPT-4 Subset](https://huggingface.co/datasets/allenai/WildChat-nontoxic)   |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-chat) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_large_wildchat_sft.gin) |
-| **OpenMoE-34B/32E (200B)**   |  34B MoE with comparable FLOPs of a 7B LLaMA(No SFT)  |34B        |[Link](https://huggingface.co/OrionZheng/openmoe-34b-200B) |[Link](https://github.com/XueFuzhao/t5x/blob/main/t5x/examples/t5/t5_1_1/examples/openmoe_xl.gin) |
- 
+Besides, we also provide all our intermediate checkpoints(base, 8B, 34B) for research purposes.
 
-The base models, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of the model architexture, we did not pursue further training. Consequently, the base checkpoint are not suitable for practical applications as their performance might not be very well.
+| Model Name     | Description                      | #Param   |Huggingface |
+|----------------|-------------------------------------------------|----------|-------------|
+| **OpenMoE-34B-200B**   |  34B MoE with comparable FLOPs of a 7B LLaMA(No SFT)  |34B        |[Link](https://huggingface.co/OrionZheng/openmoe-34b-200B) |
+| OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B) |
+| OpenMoE-8B-400B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-400B) | 
+| OpenMoE-8B-600B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-600B) |
+| OpenMoE-8B-800B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-800B) | 
+| OpenMoE-8B-1T   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-1T) | 
+| OpenMoE-base(128B)   | A small MoE model for debugging only       |637M      |[Link](https://huggingface.co/OrionZheng/openmoe-base) |  
+| OpenLLaMA-base(128B) | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |
 
-The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. Besides, we also provide some intermediate checkpoints at 200B and 890B tokens for research purposes.
+
+The base model, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of our model architecture, we did not pursue further training. Consequently, their performance might not be very well, and the checkpoint are not suitable for practical applications. Better performence can be oberved from our 8B or 34B versions.
+
+The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. The intermediate checkpoints at 200B, 400B, 600B, 800B, 1T tokens can be used to study the training dynamics of MoE architexture.
 
 We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layer and 32 experts. We released the intermediate checkpoint trained on 200B tokens on huggingface. If you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu).
-
 
 ## Get Started
 
