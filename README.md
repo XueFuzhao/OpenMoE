@@ -43,7 +43,7 @@ The table below lists the 8B/8B-Chat model that has completed training on 1.1T t
 
 | Model Name     | Description                      | #Param   |Huggingface |
 |----------------|-------------------------------------------------|----------|-------------|
-| **OpenMoE-8B(1.1T)**   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b) |
+| **OpenMoE-8B(1.1T)**   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b) |
 | **OpenMoE-8B-Chat (1.1T+SFT)**   | OpenMoE-8B-1.1T supervised finetuned on the [WildChat GPT-4 Subset](https://huggingface.co/datasets/allenai/WildChat-nontoxic)   |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-chat) |
 
 
@@ -52,11 +52,11 @@ Besides, we also provide all our intermediate checkpoints(base, 8B, 34B) for res
 | Model Name     | Description                      | #Param   |Huggingface |
 |----------------|-------------------------------------------------|----------|-------------|
 | **OpenMoE-34B-200B**   |  34B MoE with comparable FLOPs of a 7B LLaMA(No SFT)  |34B        |[Link](https://huggingface.co/OrionZheng/openmoe-34b-200B) |
-| OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B) |
-| OpenMoE-8B-400B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-400B) | 
-| OpenMoE-8B-600B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-600B) |
-| OpenMoE-8B-800B   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-800B) | 
-| OpenMoE-8B-1T   | 8B MoE with comparable FLOPs of a 1.6B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-1T) | 
+| OpenMoE-8B-200B   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-200B) |
+| OpenMoE-8B-400B   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-400B) | 
+| OpenMoE-8B-600B   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT) |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-600B) |
+| OpenMoE-8B-800B   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-800B) | 
+| OpenMoE-8B-1T   | 8B MoE with comparable FLOPs of a 2B LLaMA(No SFT)  |8B        |[Link](https://huggingface.co/OrionZheng/openmoe-8b-1T) | 
 | OpenMoE-base(128B)   | A small MoE model for debugging only       |637M      |[Link](https://huggingface.co/OrionZheng/openmoe-base) |  
 | OpenLLaMA-base(128B) | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |
 
