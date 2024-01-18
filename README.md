@@ -194,7 +194,7 @@ Relative Cost is approximated by multiplying activated parameters and training t
 For more detailed results, please see our [Blog](https://www.notion.so/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879) 
 
 ### MT-Bench
-We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed dense LLMs trained with around two times FLOPs on the first Turn results.
+We perform evaluation on MT-Bench and observe that OpenMoE-8B-Chat outperformed dense LLMs trained with around two times effective FLOPs on the first Turn results.
 
 <img src="figure/mt_bench_turn_1.png" width="50%" alt="Bigbench-Lite">
 
