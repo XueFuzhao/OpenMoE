@@ -14,6 +14,8 @@ As a small student team, instead of pursuing the best model with better data, co
 
 ## News
 
+[2024/01] 🔥 We release OpenMoE paper! We conducted an in-depth routing analysis and found many interesting stuffs. Check it [here](https://github.com/XueFuzhao/OpenMoE/blob/main/paper/paper.pdf)!
+
 [2024/01] 🔥 OpenMoE-8B-Chat is now available. We've provided a Colab inference [demo](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY) for everyone to try, as well as a [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) on converting JAX checkpoints to PyTorch checkpoints(Note: both require Colab Pro).
 
 [2023/11] 🔥 Thanks to Colossal AI! They released one [PyTorch OpenMoE implementation](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) including both training and inference with expert parallelism.
@@ -225,13 +227,11 @@ The computational resources for this project were generously provided by the [Go
 Please cite the repo if you use the model and code in this repo.
 
 ```bibtex
-@misc{openmoe2023,
-  author = {Fuzhao Xue, Zian Zheng, Yao Fu, Jinjie Ni, Zangwei Zheng, Wangchunshu Zhou and Yang You},
-  title = {OpenMoE: Open Mixture-of-Experts Language Models},
-  year = {2023},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/XueFuzhao/OpenMoE}},
+@article{openmoe2023,
+  title={OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models},
+  author={Xue, Fuzhao and Zheng, Zian and Fu, Yao and Ni, Jinjie and Zheng, Zangwei and Zhou, Wangchunshu and You, Yang},
+  journal={preprint},
+  year={2023}
 }
 ```
 
