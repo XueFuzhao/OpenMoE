@@ -1,20 +1,20 @@
 <p align="center">
 <img width="200px" alt="OpenMoE" src="https://github.com/XueFuzhao/OpenMoE/blob/main/logo.jpg?raw=true">
 </p>
-<p align="center"><a href="https://github.com/XueFuzhao/OpenMoE/tree/main">[Homepage]</a>  |  <a href="https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY#scrollTo=62T-2mH_tsjG">[Colab Demo]</a> | <a href="https://huggingface.co/OrionZheng">[Huggingface]</a> | <a href="https://discord.gg/bjGnGfjegU">[Discord]</a>  |  <a href="https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw">[Twitter]</a> | <a href="https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879">[Blog]</a></p>
+<p align="center"><a href="https://github.com/XueFuzhao/OpenMoE/tree/main">[Homepage]</a> | <a href="https://github.com/XueFuzhao/OpenMoE/blob/main/paper/paper.pdf">[Paper]</a> |  <a href="https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY#scrollTo=62T-2mH_tsjG">[Colab Demo]</a> | <a href="https://huggingface.co/OrionZheng">[Huggingface]</a> | <a href="https://discord.gg/bjGnGfjegU">[Discord]</a>  |  <a href="https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw">[Twitter]</a> | <a href="https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879">[Blog]</a></p>
 </p>
 <hr>
 
 # OpenMoE
 OpenMoE is a project aimed at igniting the open-source MoE community! We are releasing a family of open-sourced Mixture-of-Experts (MoE) Large Language Models.
 
-Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code [[Twitter]](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, the OpenMoE-8B training was completed in November, 2023. After that, we embarked on explorations on 34B scale model, which is still ongoing.
+Our project began in the summer of 2023. On August 22, 2023, we released the first batch of intermediate checkpoints (OpenMoE-base&8B), along with the data and code [[Twitter]](https://twitter.com/xuefz/status/1693696988611739947?s=61&t=Xc2k2W7vU_hlpNizGDCmOw). Subsequently, the OpenMoE-8B training was completed in November 2023. After that, we embarked on explorations on the 34B scale model, which is still ongoing.
 
 As a small student team, instead of pursuing the best model with better data, computation, and human power, we devote to fully sharing our training data, strategies, model architecture, weights, and everything we have with the community. We hope this project will promote research on this promising field and invite more contributors to work on open-sourced MoE projects together!
 
 ## News
 
-[2024/01] 🔥 We release OpenMoE paper! We conducted an in-depth routing analysis and found many interesting stuffs. Check it [here](https://github.com/XueFuzhao/OpenMoE/blob/main/paper/paper.pdf)!
+[2024/01] 🔥 We release OpenMoE paper! We conducted an in-depth routing analysis and found many interesting stuff. Check it [here](https://github.com/XueFuzhao/OpenMoE/blob/main/paper/paper.pdf)!
 
 [2024/01] 🔥 OpenMoE-8B-Chat is now available. We've provided a Colab inference [demo](https://colab.research.google.com/drive/1xIfIVafnlCP2XVICmRwkUFK3cwTJYjCY) for everyone to try, as well as a [tutorial](https://colab.research.google.com/drive/1eIT1rtG7pORRQAYtQoMOAekUg7aZLDdn) on converting JAX checkpoints to PyTorch checkpoints(Note: both require Colab Pro).
 
@@ -63,11 +63,11 @@ Besides, we also provide all our intermediate checkpoints(base, 8B, 34B) for res
 | OpenLLaMA-base(128B) | A dense counter-part of OpenMoE-base            |310M      |[Link](https://huggingface.co/fuzhao/OpenLLaMA_Base) |
 
 
-The base model, which were trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of our model architecture, we did not pursue further training. Consequently, their performance might not be very well, and the checkpoint are not suitable for practical applications. Better performence can be oberved from our 8B or 34B versions.
+The base model, which was trained using 128 billion tokens, served primarily for debugging purposes. After validating the effectiveness of our model architecture, we did not pursue further training. Consequently, their performance might not be very good, and the checkpoints are not suitable for practical applications. Better performance can be observed from our 8B or 34B versions.
 
-The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. The intermediate checkpoints at 200B, 400B, 600B, 800B, 1T tokens can be used to study the training dynamics of MoE architexture.
+The OpenMoE-8B with 4 MoE layers and 32 experts has been trained by 1.1T tokens. The SFT version has also been released after we finetuned the OpenMoE-8B-1.1T on the [wildchat]((https://huggingface.co/datasets/allenai/WildChat-nontoxic)) dataset's GPT-4 subset. The intermediate checkpoints at 200B, 400B, 600B, 800B, 1T tokens can be used to study the training dynamics of MoE architecture.
 
-We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layer and 32 experts. We released the intermediate checkpoint trained on 200B tokens on huggingface. If you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu).
+We are still training our OpenMoE-34B, which is a MoE model with 8 MoE layers and 32 experts. We released the intermediate checkpoint trained on 200B tokens on Huggingface. If you are interested in the latest checkpoint, please feel free to drop Fuzhao an email (f.xue@u.nus.edu).
 
 ## Get Started
 
@@ -80,7 +80,7 @@ pip install ./ColossalAI
 python -m pip install -r ./ColossalAI/examples/language/openmoe/requirements.txt
 ```
 
-Then, you can inference by:
+Then, you can do inference by:
 ```
 from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM
 
@@ -113,7 +113,7 @@ We also provide a Colab [tutorial](https://colab.research.google.com/drive/1eIT1
 
 
 ### Training with TPU/GPU
-1. **On TPUs:** Get a TPU-vm and run the following code on all TPUs. Researcher can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
+1. **On TPUs:** Get a TPU-vm and run the following code on all TPUs. Researchers can apply [TPU Research Cloud](https://sites.research.google/trc/about/) to get the TPU resource.
 ```
 git clone https://github.com/XueFuzhao/OpenMoE.git
 bash OpenMoE/script/run_pretrain.sh
@@ -121,7 +121,7 @@ bash OpenMoE/script/run_pretrain.sh
 2. **On GPUs:** [ColossalAI](https://github.com/hpcaitech/ColossalAI/tree/main/examples/language/openmoe) provides a PyTorch + GPU implementation for OpenMoE and has optimized expert parallel strategies. However, we have recently noticed some issues[#5163](https://github.com/hpcaitech/ColossalAI/issues/5163),[#5212](https://github.com/hpcaitech/ColossalAI/issues/5212) raised about convergence problems. We are actively following up on these concerns and will soon update our GPU training tutorials.
 
 ### Evaluation with TPU/GPU
-1. **On GPUs:** You can evaluate our model on MT-Bench by runing code below.
+1. **On GPUs:** You can evaluate our model on MT-Bench by running the code below.
 ```
 git clone https://github.com/Orion-Zheng/FastChat.git
 cd FastChat && pip install -e ".[model_worker,llm_judge]"
@@ -130,7 +130,7 @@ python gen_model_answer.py --model-path LOCAL_PATH_TO_MODEL_CKPT/openmoe_8b_chat
                            --model-id openmoe-chat\
                            --dtype bfloat16
 ```
-2. **On TPUs:** Get a TPU-vm and run the following code to evaluate model on the BIG-bench-Lite.
+2. **On TPUs:** Get a TPU-vm and run the following code to evaluate the model on the BIG-bench-Lite.
 ```
 git clone https://github.com/XueFuzhao/OpenMoE.git
 bash OpenMoE/script/run_eval.sh
