@@ -227,13 +227,11 @@ The computational resources for this project were generously provided by the [Go
 Please cite the repo if you use the model and code in this repo.
 
 ```bibtex
-@misc{xue2024openmoe,
-      title={OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models}, 
-      author={Fuzhao Xue and Zian Zheng and Yao Fu and Jinjie Ni and Zangwei Zheng and Wangchunshu Zhou and Yang You},
-      year={2024},
-      eprint={2402.01739},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{xue2024openmoe,
+  title={OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models},
+  author={Xue, Fuzhao and Zheng, Zian and Fu, Yao and Ni, Jinjie and Zheng, Zangwei and Zhou, Wangchunshu and You, Yang},
+  journal={arXiv preprint arXiv:2402.01739},
+  year={2024}
 }
 ```
 
